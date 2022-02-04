@@ -6,21 +6,100 @@ usar estas paginas web para tomar recursos de html = https://www.w3schools.com/h
 https://getlorem.com/es
 https://developer.mozilla.org/es 
 usar solo un h1 por pagina-->
-<html>
+<!-- se actualiza la pagina index para que contenga nuevs etiquetas meta y 
+demas etiqueta para la semantica del boddy-->
+
+<!-- C:\Users\XPC\Documents\NetBeansProjects\InitializrSpringbootProject\src\main\resources\static\images -->
+
+<html lang = "es">
     <head>
         <title>Tienda en linea</title>
         <meta charset="UTF-8">
+        <meta name="description" content ="Esta pagina contiene etiqueta del tipo html5 y luego enlaces o definicion de estilos css3">
+        <meta name="keywords" content="html5, css3, web">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>          
     </head>
     <body>
-        <a href="ejemplo9.html">Back</a> 
-        <a href="index.html">Home</a> 
-        <a href="ejemplo2.html">Next</a><br>
-        <div>
-            <h1 style="text-align: center">Home</h1>
-            <p>Esta es la primera pagina del curso Web y Patrones...</p>
-        </div>
-        <p style="text-align: left">Lorem ipsum dolor sit amet consectetur adipiscing elit, semper lobortis pulvinar mauris dictumst quis praesent nostra, sociis nibh potenti dui porttitor imperdiet. Vitae sapien hendrerit ligula potenti vulputate dictum tristique nascetur, platea donec himenaeos habitant nunc quis fames, ut nulla odio quisque litora natoque id. Netus fusce augue aliquet eros lobortis aliquam turpis ac risus mattis quam, luctus tortor faucibus iaculis facilisis dapibus fringilla ullamcorper cras litora, ut rutrum inceptos tellus massa facilisi pellentesque non purus quis. Faucibus augue taciti posuere interdum purus nisi tortor urna commodo, tincidunt facilisis feugiat primis velit sem elementum lobortis quisque, scelerisque suscipit ridiculus vestibulum eget dignissim class libero.</p>
-        <p style="text-align: right">Velit eros elementum risus ac est vivamus parturient porta facilisi, nulla duis mauris placerat conubia turpis sociosqu gravida, felis justo dapibus magnis nullam dictumst faucibus quam. Iaculis etiam erat ut vel nam aliquet luctus imperdiet habitant, porta tellus justo aenean metus est arcu habitasse, litora tristique in dapibus a et phasellus elementum. Auctor vel orci pharetra posuere magnis iaculis porta consequat inceptos tellus accumsan, nec fermentum rhoncus conubia tristique torquent parturient ornare mattis.</p>
-        <p style="text-align: center">Pharetra habitant proin nascetur lacinia mus justo lacus sodales dictumst, ultrices aliquam dapibus sollicitudin imperdiet mauris leo fringilla pretium integer, tincidunt malesuada est nibh velit id faucibus iaculis. Et dictumst penatibus fringilla quam tristique dignissim interdum etiam iaculis, orci ultricies phasellus nibh dictum nisi id per, elementum auctor facilisis fusce erat suspendisse curae euismod. Mollis facilisi urna massa purus dictum, nisl vulputate litora magna donec leo, risus curabitur arcu fermentum.</p>
+        <header id="encabezado"> <!-- Etiqueta para ofrecerle al browser info de que es un encabezado-->
+            <h1>TechShop</h1>
+        </header>
+        <nav id="menu"> <!-- Esta etiqueta es para ilustrarle al browser que posiblemente es un menu-->
+            <a href="ejemplo9.html">Back</a> 
+            <a href="index.html">Home</a> 
+            <a href="ejemplo2.html">Next</a><br>
+        </nav> 
+        <aside id="barralateral"> <!-- Etiqueta para indicar que es una barra lateral al final, peude ser a la izquierda o derecha, y pueden ser varias -->
+            <h2>Productos mas vendidos</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, pulvinar pellentesque cubilia ad praesent viverra diam, natoque duis integer volutpat ullamcorper maecenas. Augue nam tellus ligula lobortis class metus praesent, sodales mauris a fermentum ut bibendum nostra purus, litora vulputate mus aptent est feugiat. Neque ornare sagittis diam himenaeos molestie mollis torquent tortor dui, nisi dictumst dignissim vel hendrerit ut in felis, cubilia nibh primis iaculis rhoncus quisque natoque dis.</p>
+        </aside>
+
+        <section id="contenido">
+            <h2>Articulos principales</h2>
+            <article>
+                <header>Portatil XRT 5000</header>
+                <p> Lorem ipsum dolor sit amet consectetur adipiscing elit, semper lobortis pulvinar mauris dictumst quis praesent nostra, sociis nibh potenti dui porttitor imperdiet. Vitae sapien hendrerit ligula potenti vulputate dictum tristique nascetur, platea donec himenaeos habitant nunc quis fames, ut nulla odio quisque litora natoque id. Netus fusce augue aliquet eros lobortis aliquam turpis ac risus mattis quam, luctus tortor faucibus iaculis facilisis dapibus fringilla ullamcorper cras litora, ut rutrum inceptos tellus massa facilisi pellentesque non purus quis. Faucibus augue taciti posuere interdum purus nisi tortor urna commodo, tincidunt facilisis feugiat primis velit sem elementum lobortis quisque, scelerisque suscipit ridiculus vestibulum eget dignissim class libero.</p>
+                <footer>Agregar al carrito</footer>
+                <figure>
+                    <img src="images/1.jpeg" alt="Desktop XRT"/>
+                </figure>
+            </article>
+            <article>
+                <header>Alienware ATD 9000</header>
+                <p> Esta inspirada en la pelicula <cite>Aliens el octavo pasajero</cite>Velit eros elementum risus ac est vivamus parturient porta facilisi, nulla duis mauris placerat conubia turpis sociosqu gravida, felis justo dapibus magnis nullam dictumst faucibus quam. Iaculis etiam erat ut vel nam aliquet luctus imperdiet habitant, porta tellus justo aenean metus est arcu habitasse, litora tristique in dapibus a et phasellus elementum. Auctor vel orci pharetra posuere magnis iaculis porta consequat inceptos tellus accumsan, nec fermentum rhoncus conubia tristique torquent parturient ornare mattis.</p>
+                <footer>Agregar al carrito</footer>
+                <figure>
+                    <img src="images/2.jpg" alt="Aliewnware "/>
+                    <figcaption>Mas vendido</figcaption>
+                </figure>
+            </article>
+            <article>
+                <header>Impresora 3D portable</header>
+                <p> Pharetra habitant proin nascetur lacinia mus justo lacus sodales dictumst, ultrices aliquam dapibus sollicitudin imperdiet mauris leo fringilla pretium integer, tincidunt malesuada est nibh velit id faucibus iaculis. Et dictumst penatibus fringilla quam tristique dignissim interdum etiam iaculis, orci ultricies phasellus nibh dictum nisi id per, elementum auctor facilisis fusce erat suspendisse curae euismod. Mollis facilisi urna massa purus dictum, nisl vulputate litora magna donec leo, risus curabitur arcu fermentum.</p>
+                <footer>Agregar al carrito</footer>
+                <figure>
+                    <img src="images/3.jpg" alt=""/>
+                    <figcaption>Mas economica</figcaption>
+                </figure>
+            </article>
+            <article>
+                <header>Resumen de lineas generales</header>   
+                <table border="0">
+                    <thead>
+                        <tr id="encabezadotabla">
+                            <th>Codigo</th>
+                            <th>Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaresumen">
+                        <tr>
+                            <td>1</td>
+                            <td> Pharetra habitant proin nascetur</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>lacinia mus justo lacus sodales dictumst</td>
+                        </tr>
+                                                <tr>
+                            <td>3</td>
+                            <td> Pharetra habitant proin nascetur</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>lacinia mus justo lacus sodales dictumst</td>
+                        </tr>
+                                                <tr>
+                            <td>5</td>
+                            <td> ultrices aliquam dapibus sollicitudin imperdiet</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>mauris leo fringilla pretium integer</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </article>
+        </section>
+        <footer id="piepagina">Derechos reservados &COPY; 2022 <address style="display: inline">Tel 8889-7744</address></footer>
     </body>
 </html>
