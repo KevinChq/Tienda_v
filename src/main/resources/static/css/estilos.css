@@ -1,7 +1,7 @@
 /*hoja de estilos de la clase 2 Web y patrones*/
 /*id... #xxxx*/
 
-#encabezado{
+*#encabezado{
     position: absolute;
     top: 0;
     left: 0;
@@ -25,17 +25,17 @@
     color: white;
 }
 
-#menu a {
+#menu a{
     background-color: red;
     color: black;
 }
 
-#menu a:hover {
+#menu a:hover{
     background-color: green;
     color: white;
 }
 
-#barralateral {
+#barralateral{
     position: absolute;
     top: 12%;
     left: 0;
@@ -45,7 +45,7 @@
     color: 10px
 }
 
-#contenido {
+#contenido{
     position: absolute;
     top: 12%;
     left: 20%;
@@ -56,7 +56,7 @@
     overflow: auto
 }
 
-#piepagina {
+#piepagina{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -71,12 +71,20 @@
      color: white;
 }
 
-#tablaresumen tr:nth-child(odd) {
+#tablaresumen tr:nth-child(odd){
     background-color: coral;
     color: blue;
 }
 
-#tablaresumen tr:nth-child(even) {
+#tablaresumen tr:nth-child(even){
     background-color: white;
     color: red;
+}
+
+figcaption{
+    color: rgb(170,150,50);
+}
+
+article header{
+    background-color: #47F0B09;
 }

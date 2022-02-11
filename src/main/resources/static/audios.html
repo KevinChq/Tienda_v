@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Primera pagina web del curso...
+la etiqueta <br> funciona como espacio
+el div funciona para definir un bloque
+usar estas paginas web para tomar recursos de html = https://www.w3schools.com/html/
+https://getlorem.com/es
+https://developer.mozilla.org/es 
+usar solo un h1 por pagina-->
+<!-- se actualiza la pagina index para que contenga nuevs etiquetas meta y 
+demas etiqueta para la semantica del boddy-->
+
+<!-- C:\Users\XPC\Documents\NetBeansProjects\InitializrSpringbootProject\src\main\resources\static\images -->
+
+<html lang = "es">
+    <head>
+        <title>Tienda en linea</title>
+        <meta charset="UTF-8">
+        <meta name="description" content ="Esta pagina contiene etiqueta del tipo html5 y luego enlaces o definicion de estilos css3">
+        <meta name="keywords" content="html5, css3, web">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>          
+    </head>
+    <body>
+        <header id="encabezado"> <!-- Etiqueta para ofrecerle al browser info de que es un encabezado-->
+            <h1>TechShop</h1>
+        </header>
+        <nav id="menu"> <!-- Esta etiqueta es para ilustrarle al browser que posiblemente es un menu-->
+            <a href="ejemplo9.html">Back</a> 
+            <a href="index.html">Home</a> 
+            <a href="ejemplo2.html">Next</a><br>
+        </nav> 
+        <aside id="barralateral"> <!-- Etiqueta para indicar que es una barra lateral al final, peude ser a la izquierda o derecha, y pueden ser varias -->
+            <h2>Productos mas vendidos</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, pulvinar pellentesque cubilia ad praesent viverra diam, natoque duis integer volutpat ullamcorper maecenas. Augue nam tellus ligula lobortis class metus praesent, sodales mauris a fermentum ut bibendum nostra purus, litora vulputate mus aptent est feugiat. Neque ornare sagittis diam himenaeos molestie mollis torquent tortor dui, nisi dictumst dignissim vel hendrerit ut in felis, cubilia nibh primis iaculis rhoncus quisque natoque dis.</p>
+        </aside>
+
+        <section id="contenido">
+            <h2>Ejemplo de audios</h2>
+            <article>
+                <header><h3>Musica Celta</h3></header>
+                <figure>
+                    <audio controls>
+                        <source src="audios/musica.mp3" type="audio/mpeg">
+                        Su explorador no soporta el formato de audio <code>audio</code>
+                    </audio>
+                </figure>
+            </article>
+        </section>
+        <footer id="piepagina">Derechos reservados &COPY; 2022 <address style="display: inline">Tel 8889-7744</address></footer>
+    </body>
+</html>
