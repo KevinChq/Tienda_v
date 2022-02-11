@@ -9,24 +9,25 @@ usar solo un h1 por pagina-->
 <!-- se actualiza la pagina index para que contenga nuevs etiquetas meta y 
 demas etiqueta para la semantica del boddy-->
 
-<!-- C:\Users\XPC\Documents\NetBeansProjects\InitializrSpringbootProject\src\main\resources\static\images -->
-
 <html lang = "es">
     <head>
         <title>Tienda en linea</title>
         <meta charset="UTF-8">
         <meta name="description" content ="Esta pagina contiene etiqueta del tipo html5 y luego enlaces o definicion de estilos css3">
         <meta name="keywords" content="html5, css3, web">
-        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>          
+        <link href="css/menu.css" rel="stylesheet" type="text/css"/>          
     </head>
     <body>
-        <header id="encabezado"> <!-- Etiqueta para ofrecerle al browser info de que es un encabezado-->
-            <h1>TechShop</h1>
-        </header>
-        <nav id="menu"> <!-- Esta etiqueta es para ilustrarle al browser que posiblemente es un menu-->
-            <a href="ejemplo9.html">Back</a> 
-            <a href="index.html">Home</a> 
-            <a href="ejemplo2.html">Next</a><br>
+        <header class="header"> <!-- Etiqueta para ofrecerle al browser info de que es un encabezado-->
+        <nav class="nav"> <!-- Esta etiqueta es para ilustrarle al browser que posiblemente es un menu-->
+            <a href="new.html" class="logo nav-link">TechShop</a> 
+            <ul class="nav-menu">
+                <li class="nav-menu-item"><a class="nav-menu-link" href="ejemplo9.html">&LeftTriangleBar;</a></li>
+                <li class="nav-menu-item"><a class="nav-menu-link" href="ejemplo2.html">&RightTriangleBar;</a></li>
+                <li class="nav-menu-item"><a class="nav-menu-link" href="audios.html">Audios</a></li>
+                <li class="nav-menu-item"><a class="nav-menu-link" href="videos.html">Videos</a></li>
+                <li class="nav-menu-item"><a class="nav-menu-link" href="iframes.html">Iframes</a></li>
+            </ul>
         </nav> 
         <aside id="barralateral"> <!-- Etiqueta para indicar que es una barra lateral al final, peude ser a la izquierda o derecha, y pueden ser varias -->
             <h2>Productos mas vendidos</h2>
