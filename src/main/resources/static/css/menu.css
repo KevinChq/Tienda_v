@@ -12,6 +12,7 @@ body {
     background-color: #076AF0;
     height: 80px;
     position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
 }
@@ -55,5 +56,5 @@ body {
 
 .nav-menu-link {
     padding: 8px 12px;
-    border-radius: 4px;
+    border-radius: 5px;
 }
