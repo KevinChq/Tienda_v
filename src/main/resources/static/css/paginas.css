@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family : sans-serif;
+    padding: 90px 20px 0;
+}
+
+.headerIntel {
+    background-color: #0071C5;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.headerAmd {
+    background-color: #ED1C24;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.headerNvidia {
+    background-color: #76B900;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header {
+    background-color: #D4AF31;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    max-width: 992px;
+    margin: 0 auto;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 0px;
+    line-height: 80px;
+    left: 0;
+}
+
+.nav-menu {
+    display: flex;
+    margin-right: -540px;
+    list-style: none;
+}
+
+.nav-menu-item {
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 80px;
+    width: max-content;
+}
+
+.nav-menu-link:hover {
+    background-color: #000000;
+    transition: 0.5s;
+}
+
+.nav-menu-link {
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+#titulo{
+    position: absolute;
+    top: 12%;
+    left: 20%;
+    height: 100%;
+    width: 50%;
+}
+
+#tabla{
+    background-color: #D4AF31;
+    color: white;
+}
+
+#intel tr:nth-child(odd){
+    background-color: #0071C5;
+    color: white;
+}
+
+#intel tr:nth-child(even){
+    background-color: #B1B3B3;
+    color: #000000;
+}
+
+#amd tabla{
+    background-color: #D4AF31;
+    color: white;
+}
+
+#amd tr:nth-child(odd){
+    background-color: #ED1C24;
+    color: white;
+}
+
+#amd tr:nth-child(even){
+    background-color: #B1B3B3;
+    color: #000000;
+}
+
+#nvidiatabla{
+    background-color: #76B900;
+    color: white;
+}
+
+#nvidia tr:nth-child(odd){
+    background-color: #000000;
+    color: white;
+}
+
+#nvidia tr:nth-child(even){
+    background-color: #76B900;
+    color: white;
+}
