@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://wwww.thymeleaf.org" 
+      xmlns:sec="http://thymeleaft.org/extras/spring-security">
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+            <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <header th:replace="layout/plantilla :: header"/>
+    <div class="contenido">
+        <h2 th:text="#{categoria.titulo}">Listado de Categorias</h2>
+        <a th:href="@{/categoria/nuevo}" sec:authorize="hasRole('ROLE_ADMIN')">[[#{categoria.nuevo}]]</a>
+        <div th:if="${categorias != null and !categorias.empty}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th th:text="#{categoria.descripcion}">Descripcion</th>
+                        <th th:text="#{categoria.activo}">Activa</th>
+                        <th th:text="#{accion.eliminar}">Eliminar</th>
+                        <th th:text="#{accion.actualizar}">Actualizar</th>
+                        <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.eliminar}]]</th>
+                        <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.actualizar}]]</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="categoria : ${categorias}">
+                        <td th:text="${categoria.descripcion}"></td>
+                        <td><input type="checkbox" name="activo" th:checked="${categoria.activo}" disabled="true"></td>
+                        <td sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a th:href="@{/categoria/eliminar/} + ${categoria.idCategoria}">[[#{accion.eliminar}]]</a></td>
+                        <td sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a th:href="@{/categoria/modificar/} + ${categoria.idCategoria}">[[#{accion.modificar}]]</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:if="${categorias == null or categorias.empty}">
+            <p th:text="#{categoria.no_mostrar}">No tenemos lista de categorias que mostrar...</p>
+        </div>
+    </div>
+    <footer th:replace="layout/plantilla :: footer"/>
+
+</html>
