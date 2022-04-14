@@ -14,46 +14,48 @@
                             type="button" 
                             class="btn btn-primary btn-block" 
                             data-bs-toggle="modal" 
-                            data-bs-target="#agregarCategoria">
+                            data-bs-target="#agregarArticulo">
                             <i class="fas fa-plus"></i> [[#{accion.agregar}]]
                         </button>
                     </div>
                 </div>
             </div>
-        </section> <!-- pass -->
+        </section>
 
-        <section th:fragment="listadoCategorias" id="categorias">
+        <section th:fragment="listadoArticulos" id="articulos">
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
                         <div class="card">
                             <div class="card-header">
-                                <h4>[[#{categoria.titulo}]]</h4>
+                                <h4>[[#{articulo.titulo}]]</h4>
                             </div>
-                            <div th:if="${categorias != null and !categorias.empty}">
+                            <div th:if="${articulos != null and !articulos.empty}">
                                 <table class="table table-stryped">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>#</th>
-                                            <th th:text="#{categoria.descripcion}">Descripcion</th>
-                                            <th th:text="#{categoria.activo}">Activo</th>
-                                            <th></th>
-                                            <th></th>
+                                            <th th:text="#{articulo.descripcion}">Descripcion</th>
+                                            <th th:text="#{articulo.precio}">Precio</th> 
+                                            <th th:text="#{articulo.existencias}">Existencias></th>
+                                            <th th:text="#{articulo.activo}">Activo</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="categoria, contador : ${categorias}">
+                                        <tr th:each="articulo, contador : ${articulos}">
                                             <td>[[${contador.count}]]</td>
-                                            <td>[[${categoria.descripcion}]]</td>
-                                            <td>[[${categoria.activo}]]</td>
+                                            <td>[[${articulo.descripcion}]]</td>
+                                            <td class="text-end">[[${new java.text.DecimalFormat('$#,##0.00').format(articulo.precio)}]]</td>                                      
+                                            <td class="text-end">[[${new java.text.DecimalFormat('#').format(articulo.existencias)}]]</td>
+                                            <td>[[${articulo.activo}]]</td>
                                             <td>
-                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
+                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/articulo/eliminar/}+${articulo.idArticulo}"
                                                    class="btn btn-danger">
                                                     <i class="fas fa-angle-double-right"></i> [[#{accion.eliminar}]]
                                                 </a>
                                             </td>
                                             <td>
-                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/categoria/modificar/}+${categoria.idCategoria}"
+                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/articulo/modificar/}+${articulo.idArticulo}"
                                                    class="btn btn-success">
                                                     <i class="fas fa-angle-double-right"></i> [[#{accion.actualizar}]]
                                                 </a>
@@ -62,18 +64,27 @@
                                     </tbody>
                                 </table>
                             </div>
-
-                            <div class="text-center p-2" th:if="${categorias == null or categorias.empty}">
-                                <span th:text="#{categoria.no_mostrar}">Lista vacía</span>
+                            <div class="text-center p-2" th:if="${articulos == null or articulos.empty}">
+                                <span th:text="#{articulo.no_mostrar}">Lista vacía</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
+
                         <div class="card text-center bg-success text-white mb-3">
                             <div class="card-body">
-                                <h3 th:text="#{categoria.totalCategoria}">Total Categorias</h3>
+                                <h3 th:text="#{articulo.totalArticulos}">Total Articulos</h3>
                                 <h4 class="display-6">
-                                    <i class="fas fa-users"></i> [[${totalCategorias}]]
+                                    <i class="fas fa-users"></i> [[${totalArticulos}]]
+                                </h4>
+                            </div>
+                        </div>
+
+                        <div class="card text-center bg-danger text-white mb-3">
+                            <div class="card-body">
+                                <h3 th:text="#{articulo.precio}">Inventario Total</h3>
+                                <h4 class="display-6">
+                                    [[${new java.text.DecimalFormat('$#,##0.00').format(articulo.precio)}]]
                                 </h4>
                             </div>
                         </div>
@@ -82,24 +93,32 @@
             </div>
         </section>
 
-        <section th:fragment="agregarCategoria">
-            <div id="agregarCategoria" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <section th:fragment="agregarArticulo">
+            <div id="agregarArticulo" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header bg-info text-white">
-                            <h5 class="modal-title" th:text="#{accion.agregar}">Agregar Categoria</h5>
+                            <h5 class="modal-title" th:text="#{accion.agregar}">Agregar Articulo</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div> 
-                        <form th:action="@{/categoria/guardar}" th:object="${categoria}"
+                        <form th:action="@{/articulo/guardar}" th:object="${articulo}"
                               method="POST" class="was-validated">
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="descripcion" th:text="#{categoria.descripcion}">Descripcion</label>
-                                    <input type="text" class="form-control" name="descripcion" required="true">
+                                    <label for="descripcion" th:text="#{articulo.descripcion}">Descripcion</label>
+                                    <input type="text" class="form-control" name="nombre" required="true">
                                 </div>
                                 <div class="form-group">
-                                    <label for="activo" th:text="#{categoria.activo}">Activos</label>
-                                    <input type="checkbox" class="form-check-input" name="activo" required="true">
+                                    <label for="precio" th:text="#{articulo.precio}">Precio</label>
+                                    <input type="number" class="form-control" name="articulo.precio" required="true" step="any">
+                                </div>
+                                <div class="form-group">
+                                    <label for="existencia" th:text="#{articulo.existencias}">Existencias</label>
+                                    <input type="number" class="form-control" name="articulo.existencias" required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="activo" th:text="#{articulo.activo}">Activo</label>
+                                    <input type="checkbox" class="form-check-input" name="activo">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -111,13 +130,13 @@
             </div>
         </section>
 
-        <section th:fragment="editarCategoria">            
+        <section th:fragment="editarArticulo">            
             <form method="POST"
-                  th:action="@{/categoria/guardar}"
-                  th:object="${categoria}"
+                  th:action="@{/articulo/guardar}"
+                  th:object="${articulo}"
                   class="was-validated">
-                <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
-                <section th:replace="categoria/fragmentosCategoria :: botonesEditar"/> 
+                <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/>
+                <section th:replace="articulo/fragmentosArticulo :: botonesEditar"/> 
                 <div id="details">
                     <div class="container">
                         <div class="row">
@@ -128,16 +147,21 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="descripcion" th:text="#{categoria.descripcion}">Descripcion: </label>
+                                            <label for="descripcion" th:text="#{articulo.descripcion}">Descripcion: </label>
                                             <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}"/>
                                         </div>
                                         <div class="form-group">
-                                            <label for="activo" th:text="#{categoria.activo}">Activos</label>
-                                            <input type="checkbox"  class="form-check-input" name="activo" th:field="*{activo}"/>
+                                            <label for="precio" th:text="#{articulo.precio}">Precio: </label>
+                                            <input type="number"  class="form-control" name="precio" th:field="*{precio}"/>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button class="btn btn-primary" type="submit" th:text="#{accion.guardar}">Guardar</button>
+                                        <div class="form-group">
+                                            <label for="existencias" th:text="#{articulo.existencias}">Existencias: </label>
+                                            <input type="number"  class="form-control" name="existencias" th:field="*{existencias}"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="activo" th:text="#{articulo.activo}">Activo: </label>
+                                            <input type="checkbox"  class="form-check-input" name="activo" th:field="*{activo}"/>
+                                        </div>                  
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +176,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a th:href="@{/categoria/listado}" class="btn btn-ligth btn-block">
+                            <a th:href="@{/articulo/listado}" class="btn btn-ligth btn-block">
                                 <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
                             </a>
                         </div>
@@ -162,7 +186,7 @@
                             </button>
                         </div>
                         <div class="col-md-3">
-                            <a th:href="@{/categoria/eliminar/}+${categoria.idCategoria}"
+                            <a th:href="@{/articulo/eliminar/}+${articulo.idArticulo}"
                                class="btn btn-danger btn-block">
                                 <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                             </a>
