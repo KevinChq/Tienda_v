@@ -20,11 +20,12 @@ public class ArticuloController {
     public String inicio(Model model) {
         var articulos = articuloService.getArticulos(false);
 
-        var precios = 0;
+        var inventarioTotal = 0;
         for (var c : articulos) {
-            precios += c.precio;
+            inventarioTotal += c.existencias * c.precio;
         }
-        model.addAttribute("Inventario Total", precios);
+
+        model.addAttribute("inventarioTotal", inventarioTotal);
         model.addAttribute("totalArticulos", articulos.size());
 
         model.addAttribute("articulos", articulos);

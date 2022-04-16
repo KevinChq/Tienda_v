@@ -45,7 +45,7 @@
                                         <tr th:each="articulo, contador : ${articulos}">
                                             <td>[[${contador.count}]]</td>
                                             <td>[[${articulo.descripcion}]]</td>
-                                            <td class="text-end">[[${new java.text.DecimalFormat('$#,##0.00').format(articulo.precio)}]]</td>                                      
+                                            <td class="text-end">[[${new java.text.DecimalFormat('$#,##0.00').format(articulo.precio)}]]</td>
                                             <td class="text-end">[[${new java.text.DecimalFormat('#').format(articulo.existencias)}]]</td>
                                             <td>[[${articulo.activo}]]</td>
                                             <td>
@@ -70,21 +70,20 @@
                         </div>
                     </div>
                     <div class="col-md-3">
+                        <div class="card text-center bg-danger text-white mb-3">
+                            <div class="card-body">
+                                <h3 th:text="#{articulo.precio}">Inventario Total</h3>
+                                <h4 class="display-6">
+                                    [[${new java.text.DecimalFormat('$#,##0.00').format(inventarioTotal)}]]
+                                </h4>
+                            </div>
+                        </div>
 
                         <div class="card text-center bg-success text-white mb-3">
                             <div class="card-body">
                                 <h3 th:text="#{articulo.totalArticulos}">Total Articulos</h3>
                                 <h4 class="display-6">
                                     <i class="fas fa-users"></i> [[${totalArticulos}]]
-                                </h4>
-                            </div>
-                        </div>
-
-                        <div class="card text-center bg-danger text-white mb-3">
-                            <div class="card-body">
-                                <h3 th:text="#{articulo.precio}">Inventario Total</h3>
-                                <h4 class="display-6">
-                                    [[${new java.text.DecimalFormat('$#,##0.00').format(articulo.precio)}]]
                                 </h4>
                             </div>
                         </div>
@@ -106,19 +105,19 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="descripcion" th:text="#{articulo.descripcion}">Descripcion</label>
-                                    <input type="text" class="form-control" name="nombre" required="true">
+                                    <input type="text" class="form-control" name="descripcion" required="true">
                                 </div>
                                 <div class="form-group">
                                     <label for="precio" th:text="#{articulo.precio}">Precio</label>
-                                    <input type="number" class="form-control" name="articulo.precio" required="true" step="any">
+                                    <input type="number" class="form-control" name="precio" required="true">
                                 </div>
                                 <div class="form-group">
-                                    <label for="existencia" th:text="#{articulo.existencias}">Existencias</label>
-                                    <input type="number" class="form-control" name="articulo.existencias" required="true">
+                                    <label for="existencia" th:text="#{articulo.existencias}">Existencia</label>
+                                    <input type="number" class="form-control" name="existencias" required="true">
                                 </div>
                                 <div class="form-group">
                                     <label for="activo" th:text="#{articulo.activo}">Activo</label>
-                                    <input type="checkbox" class="form-check-input" name="activo">
+                                    <input type="checkbox" class="form-control" name="activo">
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -155,13 +154,13 @@
                                             <input type="number"  class="form-control" name="precio" th:field="*{precio}"/>
                                         </div>
                                         <div class="form-group">
-                                            <label for="existencias" th:text="#{articulo.existencias}">Existencias: </label>
+                                            <label for="existencia" th:text="#{articulo.existencias}">Existencia: </label>
                                             <input type="number"  class="form-control" name="existencias" th:field="*{existencias}"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="activo" th:text="#{articulo.activo}">Activo: </label>
-                                            <input type="checkbox"  class="form-check-input" name="activo" th:field="*{activo}"/>
-                                        </div>                  
+                                            <input type="checkbox"  class="form-control" name="activo"/>
+                                        </div>                    
                                     </div>
                                 </div>
                             </div>
