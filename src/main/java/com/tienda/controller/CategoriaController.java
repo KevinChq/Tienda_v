@@ -19,8 +19,10 @@ public class CategoriaController {
     @GetMapping("/categoria/listado")
     public String inicio(Model model) {
         var categorias = categoriaService.getCategorias(false);
+        var activo = categoriaService.getCategorias(true);
 
         model.addAttribute("totalCategorias", categorias.size());
+        model.addAttribute("totalExisten", activo.size());
         
         model.addAttribute("categorias", categorias);
         return "/categoria/listado";

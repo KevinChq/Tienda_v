@@ -19,6 +19,7 @@ public class ArticuloController {
     @GetMapping("/articulo/listado")
     public String inicio(Model model) {
         var articulos = articuloService.getArticulos(false);
+        var activo = articuloService.getArticulos(true);
 
         var inventarioTotal = 0;
         for (var c : articulos) {
@@ -27,6 +28,7 @@ public class ArticuloController {
 
         model.addAttribute("inventarioTotal", inventarioTotal);
         model.addAttribute("totalArticulos", articulos.size());
+        model.addAttribute("totalExisten", activo.size());
 
         model.addAttribute("articulos", articulos);
         return "/articulo/listado";
